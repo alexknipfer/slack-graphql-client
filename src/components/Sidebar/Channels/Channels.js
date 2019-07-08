@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import gql from 'graphql-tag'
+import { useMutation } from 'react-apollo-hooks'
 import {
   Modal,
   ModalHeader,
@@ -9,8 +11,6 @@ import {
 } from 'semantic-ui-react'
 
 import { AddChannelSection, ChannelHeader, StyledPlusIcon } from './style'
-import gql from 'graphql-tag'
-import { useMutation } from 'react-apollo-hooks'
 
 const CREATE_CHANNEL_MUTATION = gql`
   mutation createChannel($name: String!, $public: Boolean!) {
