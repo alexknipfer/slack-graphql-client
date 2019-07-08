@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { ApolloProvider } from 'react-apollo-hooks'
 import { createGlobalStyle } from 'styled-components'
 
 import { AppRouter } from './router'
+import { apolloClient } from './config/apollo'
 
 const GlobalStyle = createGlobalStyle`
   html, body, main, #root {
@@ -14,10 +16,10 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <Fragment>
+    <ApolloProvider client={apolloClient}>
       <GlobalStyle />
       <AppRouter />
-    </Fragment>
+    </ApolloProvider>
   )
 }
 
