@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 
 import { AppRouter } from './router'
 import { apolloClient } from './config/apollo'
+import { AuthProvider } from './store/Auth/provider'
 
 const GlobalStyle = createGlobalStyle`
   html, body, main, #root {
@@ -17,8 +18,10 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <ApolloProvider client={apolloClient}>
-      <GlobalStyle />
-      <AppRouter />
+      <AuthProvider>
+        <GlobalStyle />
+        <AppRouter />
+      </AuthProvider>
     </ApolloProvider>
   )
 }
